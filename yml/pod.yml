@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-k8s
+  labels:
+    app: lab
+spec:
+  containers:
+    - name: pod-k8s
+      image: hectorvido/app
+      ports:
+        - containerPort: 5000

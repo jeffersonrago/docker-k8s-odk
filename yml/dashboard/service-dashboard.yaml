@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-dash
+  labels: 
+    app: svc-dashboard-k8s
+spec:
+  type: NodePort
+  ports:
+    - port:  443
+      nodePort: 30001
+      protocol: TCP
+  selector:
+      k8s-app: kubernetes-dashboard

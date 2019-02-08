@@ -1,0 +1,21 @@
+version: '2.0'
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+
+  app:
+    image: app
+    depends_on:
+      - mongo
+    ports:
+      - "5000:5000"
+    environment:
+      MONGO_USER: admin
+      MONGO_PASS: admin
+      MONGO_HOST: mongo
+
